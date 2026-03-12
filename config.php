@@ -1,5 +1,5 @@
 <?php
-    $site_url = "https://TU-URL.up.railway.app/";
+    $site_url = "https://ruah2-web-production.up.railway.app/";
     
     $host = getenv('DB_HOST');
     $user = getenv('DB_USER');
