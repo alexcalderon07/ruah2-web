@@ -8,7 +8,7 @@ class paginate
 	{
 		global $host, $user, $password;
 		$database = new Database();
-		$db = $database->dbConnection($host, "player", $user, $password);
+		$db = $database->dbConnection($host, "srv1_player", $user, $password);
 		$this->db = $db;
     }
 	
@@ -54,7 +54,6 @@ class paginate
 				<td><?php print $row['name']; ?></td>
 				<td><img src="<?php print $site_url; ?>images/empire/<?php print $empire=get_player_empire($row['account_id']); ?>.jpg" alt="<?php print emire_name($empire); ?>" title="<?php print emire_name($empire); ?>"></td>
 				<td class="level-table text-highlight"><?php print $row['level']; ?></td>
-				<td class="level-table highlight-conqueror"><?php print $row['conquerorlevel']; ?></td>
 				<td class="exp-table"><?php print $row['exp']; ?></td> 
 			</tr>
                 <?php
