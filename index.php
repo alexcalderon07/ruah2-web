@@ -65,7 +65,7 @@ include 'include/functions/header.php';
 					<a class="nav-link" href="<?php print $site_url; ?>users/logout"><?php print $lang['logout']; ?></a>
 				</li>
 				<?php } ?>
-				<a class="navbar-brand" href="<?php print $site_url; ?>"><img src="<?php print $site_url; ?>images/logo.png" width="150px" alt="logo" class="img-fluid"></a>
+				<a class="navbar-brand" href="<?php print $site_url; ?>"><img src="<?php print $site_url; ?>images/logo.png" width="229px" alt="logo" class="img-fluid"></a>
 				<li class="nav-item">
 					<a class="nav-link" href="<?php print $social_links['presentation'];?>"><?php print $lang['presentation']; ?></a>
 				</li>
