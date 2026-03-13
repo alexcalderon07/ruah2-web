@@ -1,13 +1,31 @@
 <?php
-	$json = file_get_contents('include/db/api.json');
-	$date = json_decode($json,true);
-	
-	$date['version'] = $mt2cms;
-	$date['key'] = generateSocialID(10);
-		
-	$json_new = json_encode($date);
-	
-	file_put_contents('include/db/api.json', $json_new);
-	
-	$api = @file_get_contents('http://api.metin2cms.cf/cms?site='.$site_url.'&key='.$date['key'].'&version='.$date['version']);
-?>
+ini_set('display_errors', 0);
+require_once 'config.php';
+require_once 'include/functions/header.php';
+
+$keys = [
+    'players-online',
+    'accounts-created',
+    'created-characters',
+    'guilds-created',
+    'players-online-last-24h'
+];
+
+$result = [];
+
+foreach ($keys as $key) {
+    if (function_exists('getStatistics')) {
+        getStatistics($key);
+        $cacheFile = getCacheFileName($key);
+        if (file_exists($cacheFile)) {
+            $result[$key] = file_get_contents($cacheFile);
+        } else {
+            $result[$key] = "0";
+        }
+    } else {
+        $result[$key] = "0";
+    }
+}
+
+header('Content-Type: application/json');
+echo json_encode($result);
