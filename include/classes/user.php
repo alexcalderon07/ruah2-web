@@ -14,19 +14,19 @@ class USER
 	{
 		$database = new Database();
 		
-		$account = $database->dbConnection($host, "account", $user, $password);
+		$account = $database->dbConnection($host, "srv1_account", $user, $password);
 		$this->account = $account;
 		
-		$player = $database->dbConnection($host, "player", $user, $password);
+		$player = $database->dbConnection($host, "srv1_player", $user, $password);
 		$this->player = $player;
 		
-		$common = $database->dbConnection($host, "common", $user, $password);
+		$common = $database->dbConnection($host, "srv1_common", $user, $password);
 		$this->common = $common;
 		
 		$sqlite = $database->dbConnection("", "", "", "", "yes");
 		$this->sqlite = $sqlite;
 		
-		$log = $database->dbConnection($host, "log", $user, $password);
+		$log = $database->dbConnection($host, "srv1_log", $user, $password);
 		$this->log = $log;
     }
 	
