@@ -11,11 +11,11 @@ function getTop100Players() {
 	// If cache doesn't exist or is outdated, fetch data from database
 	global $database;
 	$banned_ids = getBannedAccounts();
-	$query = "SELECT id, name, account_id, level, exp, conquerorlevel 
+	$query = "SELECT id, name, account_id, level, exp 
               FROM player 
               WHERE name NOT LIKE '[%]%' " .
 		($banned_ids ? "AND account_id NOT IN ($banned_ids) " : "") .
-		"ORDER BY conquerorlevel DESC, level DESC, exp DESC, playtime DESC, name ASC 
+		"ORDER BY level DESC, exp DESC, playtime DESC, name ASC 
               LIMIT 100";
 
 	$stmt = $database->runQueryPlayer($query);
@@ -49,7 +49,6 @@ $top_players = getTop100Players();
 			<th><?php echo $lang['name']; ?></th>
 			<th><?php echo $lang['empire']; ?></th>
 			<th class="level-table"><?php echo $lang['level']; ?></th>
-			<th class="highlight-conqueror" style="text-align:center">Champion</th>
 			<th class="exp-table">EXP</th>
 		</tr>
 		</thead>
@@ -66,7 +65,6 @@ $top_players = getTop100Players();
 				<td><?php echo htmlspecialchars($player['name']); ?></td>
 				<td><img src="<?php print $site_url; ?>images/empire/<?php print $player['empire']; ?>.jpg" alt="<?php print emire_name($player['empire']); ?>" title="<?php print emire_name($player['empire']); ?>"></td>
 				<td class="level-table text-highlight"><?php print $player['level']; ?></td>
-				<td class="level-table highlight-conqueror" style="text-align:center"><?php print $player['conquerorlevel']; ?></td>
 				<td class="exp-table"><?php print number_format($player['exp']); ?></td>
 			</tr>
 		<?php endforeach; ?>
