@@ -83,11 +83,9 @@
 		
 		$banned_ids = getBannedAccounts();
 		if($banned_ids)
-			//$stmt = $database->runQueryPlayer("SELECT id, name, account_id, level, conquerorlevel FROM player WHERE name NOT LIKE '[%]%' AND account_id NOT IN (".$banned_ids.") ORDER BY conquerorlevel DESC, level DESC, exp DESC, playtime DESC, name ASC limit 5");
-			$stmt = $database->runQueryPlayer("SELECT id, name, account_id, level, conquerorlevel FROM player WHERE name NOT LIKE '[%]%' AND account_id NOT IN (".$banned_ids.") ORDER BY conquerorlevel DESC, level DESC, exp DESC, playtime DESC, name ASC limit 5");
+			$stmt = $database->runQueryPlayer("SELECT id, name, account_id, level FROM player WHERE name NOT LIKE '[%]%' AND account_id NOT IN (".$banned_ids.") ORDER BY level DESC, exp DESC, playtime DESC, name ASC limit 5");
 		else
-			//$stmt = $database->runQueryPlayer("SELECT id, name, account_id, level, conquerorlevel FROM player WHERE name NOT LIKE '[%]%' ORDER BY conquerorlevel DESC, level DESC, exp DESC, playtime DESC, name ASC limit 5");
-			$stmt = $database->runQueryPlayer("SELECT id, name, account_id, level, conquerorlevel FROM player WHERE name NOT LIKE '[%]%' ORDER BY conquerorlevel DESC, level DESC, exp DESC, playtime DESC, name ASC limit 5");
+			$stmt = $database->runQueryPlayer("SELECT id, name, account_id, level FROM player WHERE name NOT LIKE '[%]%' ORDER BY level DESC, exp DESC, playtime DESC, name ASC limit 5");
 		$stmt->execute();
 		$top = $stmt->fetchAll();
 		
