@@ -20,9 +20,7 @@
 				<th>
 					<?php print $lang['level']; ?>
 				</th>
-				<th style="text-align:center">
-					Champion
-				</th>
+
 			</tr>
 			<?php
 			if (!$offline) {
@@ -46,7 +44,7 @@
 							<span class="empire-<?php print $empire = get_player_empire($player['account_id']); ?>"><?php print emire_name($empire); ?></span>
 						</td>
 						<td><span class="text-highlight"><?php print $player['level']; ?></span></td>
-						<td class="highlight-conqueror" style="text-align:center"><span ><?php print $player['conquerorlevel']; ?></span></td>
+
 					</tr>
 				<?php }
 
