@@ -9,6 +9,8 @@ class USER
 	private $player;
 	private $sqlite;
 	private $conn;
+	private $common;
+	private $log;
 	
 	public function __construct($host, $user, $password)
 	{
