@@ -1455,13 +1455,13 @@
     }
     switch ($key) {
         case 'players-online':
-            $result = countOnlinePlayers_minute(5)+1500;
+            $result = countOnlinePlayers_minute(5);
             break;
         case 'accounts-created':
-            $result = getAccountsTotalNumber()+3000;
+            $result = getAccountsTotalNumber();
             break;
         case 'created-characters':
-            $result = getCharsTotalNumber()+3000;
+            $result = getCharsTotalNumber();
             break;
         case 'guilds-created':
             $result = getGuildsTotalNumber();
@@ -1470,7 +1470,7 @@
             $result = getOfflineShopsTotalNumber();
             break;
         case 'players-online-last-24h':
-            $result = countOnlinePlayers_days(5)+3100;
+            $result = countOnlinePlayers_days(5);
             break;
         default:
             $result = "ERROR";
