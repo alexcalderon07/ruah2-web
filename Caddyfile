@@ -4,26 +4,66 @@
 
 :80 {
     root * /app
-    
-    rewrite /users/register/* /index.php?p=register&ref={path.1}
-    rewrite /users/register /index.php?p=register
-    rewrite /users/login /index.php?p=login
-    rewrite /users/logout /index.php?p=logout
-    rewrite /users/lost /index.php?p=lost
-    rewrite /news/* /index.php?page_no={path.1}
-    rewrite /news /index.php
-    rewrite /read/* /index.php?p=read&no={path.1}
-    rewrite /ranking/players /index.php?p=players
-    rewrite /ranking/guilds /index.php?p=guilds
-    rewrite /user/administration /index.php?p=administration
-    rewrite /user/characters /index.php?p=characters
-    rewrite /user/donate /index.php?p=donate
-    rewrite /user/vote4coins /index.php?p=vote4coins
-    rewrite /user/referrals /index.php?p=referrals
-    rewrite /user/redeem /index.php?p=redeem
-    rewrite /download /index.php?p=download
-    rewrite /admin/* /index.php?p=admin&a={path.1}
-    rewrite /admin /index.php?p=admin
+
+    @users_register path /users/register/*
+    rewrite @users_register /index.php?p=register&ref={path.1}
+
+    @users_register_exact path /users/register
+    rewrite @users_register_exact /index.php?p=register
+
+    @users_login path /users/login
+    rewrite @users_login /index.php?p=login
+
+    @users_logout path /users/logout
+    rewrite @users_logout /index.php?p=logout
+
+    @users_lost path /users/lost
+    rewrite @users_lost /index.php?p=lost
+
+    @ranking_players path /ranking/players*
+    rewrite @ranking_players /index.php?p=players
+
+    @ranking_guilds path /ranking/guilds*
+    rewrite @ranking_guilds /index.php?p=guilds
+
+    @news path /news*
+    rewrite @news /index.php?p=news
+
+    @read path /read*
+    rewrite @read /index.php?p=read
+
+    @download path /download*
+    rewrite @download /index.php?p=download
+
+    @user_administration path /user/administration*
+    rewrite @user_administration /index.php?p=administration
+
+    @user_characters path /user/characters*
+    rewrite @user_characters /index.php?p=characters
+
+    @user_donate path /user/donate*
+    rewrite @user_donate /index.php?p=donate
+
+    @user_vote4coins path /user/vote4coins*
+    rewrite @user_vote4coins /index.php?p=vote4coins
+
+    @user_referrals path /user/referrals*
+    rewrite @user_referrals /index.php?p=referrals
+
+    @user_redeem path /user/redeem*
+    rewrite @user_redeem /index.php?p=redeem
+
+    @user_password path /user/password*
+    rewrite @user_password /index.php?p=password
+
+    @user_email path /user/email*
+    rewrite @user_email /index.php?p=email
+
+    @admin path /admin*
+    rewrite @admin /index.php?p=admin
+
+    @referral path /referral/*
+    rewrite @referral /index.php?p=register&promoter={path.1}
 
     php_server
 }
