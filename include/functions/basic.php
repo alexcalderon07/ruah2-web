@@ -98,7 +98,7 @@
 	{
 		global $database;
 		
-		$stmt = $database->runQueryPlayer("SELECT empire FROM player.player_index WHERE pid1=:id OR pid2=:id OR pid3=:id OR pid4=:id");
+		$stmt = $database->runQueryPlayer("SELECT empire FROM srv1_player.player_index WHERE pid1=:id OR pid2=:id OR pid3=:id OR pid4=:id");
 		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
 		$stmt->execute();
 		$result=$stmt->fetch(PDO::FETCH_ASSOC);
