@@ -46,7 +46,7 @@
 					</tr>
 				<?php }
 
-			} else print $offline_guilds;
+			} else print isset($offline_guilds) ? $offline_guilds : "";
 			?>
 			</tbody>
 		</table>
@@ -54,7 +54,7 @@
 		<center>
 			<?php if (!$offline) { ?>
 				<a href="<?php print $site_url; ?>ranking/guilds" class="btn-image" >Top 100 &raquo;</a>
-			<?php } else print '<span class="tag tag-danger">' . $lang['server-offline'] . '</span></br><span class="tag tag-danger">' . $lang['last-update'] . ': ' . $offline_date . '</span>'; ?>
+			<?php } else print '<span class="tag tag-danger">' . $lang['server-offline'] . '</span></br><span class="tag tag-danger">' . $lang['last-update'] . ': ' . (isset($offline_date) ? $offline_date : '') . '</span>'; ?>
 		</center>
 		</br>
 	</div>
