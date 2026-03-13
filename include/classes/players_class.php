@@ -7,9 +7,8 @@ class paginate
 	public function __construct()
 	{
 		global $host, $user, $password;
-		$database = new Database();
-		$db = $database->dbConnection($host, "srv1_player", $user, $password);
-		$this->db = $db;
+		$db = new Database();
+		$this->db = $db->dbConnection($host, "srv1_player", $user, $password);
     }
 	
 	public function dataview($query, $search=NULL)

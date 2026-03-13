@@ -22,7 +22,7 @@ class Database
 		{
 			global $offline;
 			$offline = 1;
-			echo "Connection error: " . $exception->getMessage();
+			error_log("Connection error: " . $exception->getMessage());
 		}
 		
 		return $this->conn;
