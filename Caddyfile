@@ -4,5 +4,26 @@
 
 :80 {
     root * /app
+    
+    rewrite /users/register/* /index.php?p=register&ref={path.1}
+    rewrite /users/register /index.php?p=register
+    rewrite /users/login /index.php?p=login
+    rewrite /users/logout /index.php?p=logout
+    rewrite /users/lost /index.php?p=lost
+    rewrite /news/* /index.php?page_no={path.1}
+    rewrite /news /index.php
+    rewrite /read/* /index.php?p=read&no={path.1}
+    rewrite /ranking/players /index.php?p=players
+    rewrite /ranking/guilds /index.php?p=guilds
+    rewrite /user/administration /index.php?p=administration
+    rewrite /user/characters /index.php?p=characters
+    rewrite /user/donate /index.php?p=donate
+    rewrite /user/vote4coins /index.php?p=vote4coins
+    rewrite /user/referrals /index.php?p=referrals
+    rewrite /user/redeem /index.php?p=redeem
+    rewrite /download /index.php?p=download
+    rewrite /admin/* /index.php?p=admin&a={path.1}
+    rewrite /admin /index.php?p=admin
+
     php_server
 }
