@@ -1,7 +1,5 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-@ob_start();
+
 include 'include/functions/header.php';
 ?>
 <!DOCTYPE html>
@@ -147,7 +145,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<?php include 'include/sidebar/guilds.php'; ?>
 		</div>
 		<div class="col-lg-6 mb-4">
-			<?php if ($page == 'news' || 1==1){ ?>
+			<?php if ($page == 'news'){ ?>
 				<div id="carouselNews" class="carousel slide">
 					<div class="carousel-inner">
 						<div class="carousel-item active">
