@@ -249,18 +249,4 @@ include 'include/functions/header.php';
     setInterval(updateStatistics, 3000);
 </script>
 </body>
-<a class="discord-widget" href="<?php print $social_links['discord'];?>" title="Join us on Discord">
-<img src="https://discordapp.com/api/guilds/1257778421014990948/embed.png?style=banner2">
-</a>
-<style>
-.discord-widget {
-   width:250px;
-   transition-property: right;
-   transition-duration: 2s;
-   position: fixed;
-   bottom: 20px;
-   left: 20px;
-   z-index:10;
-}
-</style>
 </html>
