@@ -63,23 +63,6 @@
 							</td>
 						</tr>
 						<tr>
-							<td>Promoters</td>
-							<td>
-								<select class="form-control" name="promoter" id="promoter">
-									<option value="">Select promoter</option>
-									<?php
-									$promoters = get_all_promoters();
-									foreach($promoters as $p){
-										$selected = ($promoterCode !== null && $promoterCode == $p['code'] ? 'selected' : '');
-										echo '<option value="'.htmlspecialchars($p['code']) . '"'.$selected.'>'.htmlspecialchars($p['code']).'</option>';
-									}
-									
-									?>
-								</select>
-								<p class="text-danger" id="checkpromoter"></p>
-							</td>
-						</tr>
-						<tr>
 							<td><?php print $lang['captcha-code']; ?>:</td>
 							<td><div class="g-recaptcha" data-theme="dark" data-sitekey="<?php print $captchakey;?>"></div></td>
 						</tr>
@@ -98,31 +81,4 @@
 
 
 </div>
-<script>
-$(document).ready(function() {
-    $('#password').on('input', function() {
-        var password = $(this).val();
-        var hint = $('#passwordHint');
 
-        // Check for uppercase, symbol, and minimum length
-        if (!/[A-Z]/.test(password) || !/[!@#$&]/.test(password) || password.length < 8) {
-            hint.removeClass('text-success').addClass('text-danger');
-            hint.text('Password must contain at least 1 capital letter, 1 symbol ( !@#$& ), and be a minimum of 8 characters.');
-        } else {
-            hint.removeClass('text-danger').addClass('text-success');
-            hint.text('Password is good.');
-        }
-    });
-
-    // Override form submit for this specific form
-    $('#registrationForm').on('submit', function(e) {
-        var password = $('#password').val();
-
-        // If password doesn't meet the criteria, prevent form submission
-        if (!/[A-Z]/.test(password) || !/[!@#$&]/.test(password) || password.length < 8) {
-            e.preventDefault();
-            alert('Please ensure your password meets the required criteria.');
-        }
-    });
-});
-</script>
