@@ -60,7 +60,7 @@
 	}
 
 	function isValidUserPassword($password) {
-		if(preg_match('/^[a-zA-Z0-9 @!#$%&(){}*+,\-.\/:;<>=?[\\]\^_|~]*$/', $password) && strlen($password)>=5 && strlen($password)<=16)
+		if(strlen($password)>=5 && strlen($password)<=16)
 			return true;
 		else return false;
 	}
