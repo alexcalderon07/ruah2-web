@@ -1,5 +1,4 @@
 <?php
-
 class Database
 {
 	public $conn;
@@ -11,7 +10,15 @@ class Database
 		try
 		{
 			if($sqlite==null)
-				$this->conn = new PDO("mysql:host=" . $host . ";dbname=" . $db_name, $user, $password);
+				$this->conn = new PDO(
+					"mysql:host=" . $host . ";dbname=" . $db_name . ";charset=utf8",
+					$user,
+					$password,
+					array(
+						PDO::ATTR_TIMEOUT => 5,
+						PDO::MYSQL_ATTR_CONNECT_TIMEOUT => 5
+					)
+				);
 			else
 			{
 				$this->conn = new PDO("sqlite:include/db/site.db");
@@ -28,5 +35,4 @@ class Database
 		return $this->conn;
 	}
 }
-
 ?>
