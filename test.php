@@ -1,13 +1,14 @@
 <?php
-include 'config.php';
-
 $host = getenv('DB_HOST');
 $user = getenv('DB_USER');
-$password = getenv('DB_PASS');
+$pass = getenv('DB_PASS');
+
+echo "Conectando a: $host<br>";
 
 try {
-    $conn = new PDO("mysql:host=" . $host . ";dbname=srv1_account", $user, $password);
-    echo "✅ Conexión exitosa a srv1_account!";
+    $conn = new PDO("mysql:host=$host;dbname=srv1_account;charset=utf8;connect_timeout=5", $user, $pass);
+    echo "✅ Conexión exitosa!";
 } catch(PDOException $e) {
-    echo "❌ Error de conexión: " . $e->getMessage();
+    echo "❌ Error: " . $e->getMessage();
 }
+?>
