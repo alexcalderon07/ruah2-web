@@ -10,10 +10,9 @@ class Database
 		{
 			if($sqlite==null)
 				$this->conn = new PDO(
-					"mysql:host=" . $host . ";dbname=" . $db_name . ";charset=utf8",
+					"mysql:host=" . $host . ";dbname=" . $db_name . ";charset=utf8;connect_timeout=5",
 					$user,
-					$password,
-					array(PDO::ATTR_TIMEOUT => 5)
+					$password
 				);
 			else
 			{
