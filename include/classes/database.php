@@ -5,7 +5,6 @@ class Database
 	
 	public function dbConnection($host, $db_name, $user, $password, $sqlite=null)
 	{
-	
 		$this->conn = null;    
 		try
 		{
@@ -14,10 +13,7 @@ class Database
 					"mysql:host=" . $host . ";dbname=" . $db_name . ";charset=utf8",
 					$user,
 					$password,
-					array(
-						PDO::ATTR_TIMEOUT => 5,
-						PDO::MYSQL_ATTR_CONNECT_TIMEOUT => 5
-					)
+					array(PDO::ATTR_TIMEOUT => 5)
 				);
 			else
 			{
